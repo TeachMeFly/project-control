@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# some comment
 MOUNT_COMMAND="mount-svnfs"
 
 SVN_DIR="/home/svn"
@@ -7,7 +8,6 @@ CACHE_DIR="/tmp/svnfs_cache"
 MOUNT_OPTIONSS="-o allow_other"
 MOUNT_DIR=".svn-repo"
 SOURCE_LINK="svn-sources"
-
 
 mount_svn_repository() {
 	if [[ $is_bundle ]]; then
