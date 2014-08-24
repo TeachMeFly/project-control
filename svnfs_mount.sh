@@ -1,6 +1,4 @@
-#!/bin/bash
 
-# some comment
 MOUNT_COMMAND="mount-svnfs"
 
 SVN_DIR="/home/svn"
