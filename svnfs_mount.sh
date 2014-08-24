@@ -1,5 +1,3 @@
-# ver
-
 MOUNT_COMMAND="mount-svnfs"
 
 SVN_DIR="/home/svn"
