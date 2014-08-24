@@ -1,4 +1,5 @@
 #!/bin/bash
+#ver
 
 CONF_FILE=".project-mrt-control.conf"
 PGID_FILES_DIR="project-mrt-control"
