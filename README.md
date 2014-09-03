@@ -7,7 +7,7 @@ This is small script for start/stop nodejs and meteor projects like system servi
 =================================
 
 start_command() {
-    mount_svn_repository()
+    mount_svn_repository
     export ROOT_URL="http://some-addr.com"
     export MONGO_URL="mongodb://localhost:27017/some-dbs"
     export PORT="3020"
@@ -16,6 +16,6 @@ start_command() {
 }
 
 stop_command() {
-    umount_svn_repository()
+    umount_svn_repository
 }
 

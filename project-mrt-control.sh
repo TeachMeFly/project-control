@@ -55,7 +55,7 @@ start() {
         fi
     fi
 
-    run_command;
+    start_command;
 
     echo $$ > ${PGID_FILE};
     echo "Project \"${project_name}\" started, PGID=$$"
@@ -95,6 +95,7 @@ stop() {
         if [[ -e "${PGID_FILE}" ]]; then
             rm ${PGID_FILE}; unset PGID;
         fi
+        stop_command
     else
         echo "Project \"${project_name}\" is not running (tested PGID: ${PGID})"
         if [[ -e "${PGID_FILE}" ]]; then
