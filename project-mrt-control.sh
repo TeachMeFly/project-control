@@ -6,6 +6,7 @@ PGID_FILES_DIR="project-mrt-control"
 STDERR="stderr.log"
 STDOUT="stdout.log"
 
+# Importing addition modules
 SOURCE_PATH="/usr/local/lib"
 source "${SOURCE_PATH}/project-mrt-control/svnfs_mount.sh"
 
@@ -25,8 +26,11 @@ if [[ ! -e ${CONF_FILE} ]]; then
     exit 4
 fi
 source ${CONF_FILE}
-if [[ $(declare -f run_command > /dev/null; echo $?) != '0' ]]; then
-    echo "'${CONF_FILE}' must have 'run_command()' function"
+if [[ $(declare -f start_command > /dev/null; echo $?) != '0' ]]; then
+    echo "'${CONF_FILE}' must have 'stop_command()' function"
+    exit 4
+elif [[ $(declare -f stop_command > /dev/null; echo $?) != '0' ]]; then
+    echo "'${CONF_FILE}' must have 'stop_command()' function"
     exit 4
 fi
 
@@ -50,7 +54,7 @@ start() {
             exit 4
         fi
     fi
-    
+
     run_command;
 
     echo $$ > ${PGID_FILE};
@@ -101,12 +105,10 @@ stop() {
 
 case $1 in
     start)
-        mount_svn_repository;
         start;
         ;;
     stop)
         stop;
-        umount_svn_repository;
         ;;
     status)
         status;
